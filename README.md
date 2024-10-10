@@ -44,16 +44,16 @@ def hits_algorithm(adjacency_matrix, max_iterations=100, tol=1.0e-6):
     
     for i in range(max_iterations):
         # Authority update
-
-             /*WRITE YOUR CODE HERE
+        new_authority_scores = np.dot(adjacency_matrix.T, hub_scores)
+        new_authority_scores /= np.linalg.norm(new_authority_scores, ord=2)  # Normalizing
         
         # Hub update
-
-             /*WRITE YOUR CODE HERE
+        new_hub_scores = np.dot(adjacency_matrix, new_authority_scores)
+        new_hub_scores /= np.linalg.norm(new_hub_scores, ord=2)  # Normalizing
         
         # Check convergence
-
-             /*WRITE YOUR CODE HERE
+        authority_diff = np.linalg.norm(new_authority_scores - authority_scores, ord=2)
+        hub_diff = np.linalg.norm(new_hub_scores - hub_scores, ord=2)
         
         if authority_diff < tol and hub_diff < tol:
             break
@@ -94,4 +94,8 @@ plt.show()
 
 ### Output:
 
+<img width="640" alt="Screenshot 2024-10-10 at 3 29 14 PM" src="https://github.com/user-attachments/assets/c841762e-e2c6-4b8c-b891-e6d6439b0aca">
+
+
 ### Result:
+       Thus, Link Analysis using HITS Algorithm in Python is successfully implemented.
